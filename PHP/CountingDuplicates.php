@@ -18,3 +18,19 @@ $recount = [];
 print_r($recount);
 return count($recount);
 }
+
+
+// PHPUnit Test Examples:
+// TODO: Replace examples and use TDD development by writing your own tests
+class MyTestCases extends TestCase
+{
+    // test function names should start with "test"
+    public function testFixedTests() {
+      $this->assertEquals(0, duplicateCount(""));
+      $this->assertEquals(0, duplicateCount("abcde"));
+      $this->assertEquals(2, duplicateCount("aabbcde"));
+      $this->assertEquals(2, duplicateCount("aabBcde"), "should ignore case");
+      $this->assertEquals(1, duplicateCount("Indivisibility"));
+      $this->assertEquals(2, duplicateCount("Indivisibilities"), "characters may not be adjacent");
+    }
+}
