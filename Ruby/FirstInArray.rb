@@ -14,5 +14,16 @@ def first_in_array(arr, el1, el2)
   element1 < element2 ? el1 : el2
 end
 
-puts first_in_array(%w[a b c d], 'd', 'c'); # => "b"
-puts first_in_array(%w[cat bird dog mouse], 'bird', 'mouse'); # => "dog"
+=begin 
+
+OtherSolution
+
+if arr.index(el1) < arr.index(el2)
+  return el1
+else
+  return el2
+end
+=end
+
+puts first_in_array(%w[a b c d], 'd', 'c'); # => "c"
+puts first_in_array(%w[cat bird dog mouse], 'bird', 'mouse'); # => "bird"
