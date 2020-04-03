@@ -14,6 +14,7 @@ def first_in_array(arr, el1, el2)
   element1 < element2 ? el1 : el2
 end
 
+
 #
 #
 # OtherSolution
