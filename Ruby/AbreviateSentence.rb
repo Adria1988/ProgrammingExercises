@@ -13,6 +13,7 @@ def abbreviate_sentence(sent)
   no_vowels.join(' ')
 end
 
+
 #
 # OtherSolution
 #
