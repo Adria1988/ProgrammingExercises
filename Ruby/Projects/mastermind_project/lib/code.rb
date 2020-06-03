@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Code
-
   attr_reader :pegs
 
   POSSIBLE_PEGS = {
@@ -25,13 +24,16 @@ class Code
   end
 
   def self.random(length)
-    pegs = Array.new(length) { Code::POSSIBLE_PEGS.keys.sample }
-    Code.new(pegs)
+    random_pegs = []
+    length.times { random_pegs << POSSIBLE_PEGS.keys.sample }
+    Code.new(random_pegs)
+    # pegs = Array.new(length) { Code::POSSIBLE_PEGS.keys.sample }
   end
 
   def self.from_string(string_representing_pegs)
     arr_of_chars = string_representing_pegs.chars.map { |char| char }
     Code.new(arr_of_chars)
+        # Code.new(string_representing_pegs.split(""))
   end
 
   def [](index)
@@ -52,9 +54,11 @@ class Code
 
   def num_near_matches(guees)
     count = 0
-    guees.pegs.each { |char| count += 1 if @pegs.include?(char) }
-    num = count - num_exact_matches(guees)
-    num
+
+    guees.pegs.each_with_index do |char, value|
+      count += 1 if @pegs[value] != char &&  @pegs.include?(char)
+    end
+   count
   end
 
   def ==(other_code)
