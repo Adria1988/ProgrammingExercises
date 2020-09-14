@@ -5,15 +5,15 @@ require_relative 'computer_player'
 
 class Game
 
-  def initialize(size, players)
+  def initialize(size,players)
     i = 0
     @players = []
     #@players = marks.map { |mark| HumanPlayer.new(mark,i) +=1 }
     players.each do |mark, is_computer|
       @players << if is_computer
-                    ComputerPlayer.new(key,mark)
+                    ComputerPlayer.new(mark,i)
                   else
-                    HumanPlayer.new(key,mark)
+                    HumanPlayer.new(mark,i)
                   end
       i += 1
     end
